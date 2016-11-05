@@ -1,0 +1,90 @@
+{% extends 'rango/base.html' %}
+<!--<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Rango</title>
+	</head>
+	<body>
+		<h1>Rango says...</h1>
+		<div>
+			hey there partner! <br />
+		</div>
+		<div>
+			{% if categories %}
+				<ul>
+					{% for category in categories %}
+					<li>
+						<a href="/rango/category/{{ category.slug }}">{{ category.name }}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+			<strong>There are no categories present.</strong>
+			{% endif %}
+		</div>
+		<div>
+			Top Pages:
+			{% if topviews %}
+				<ul>
+					{% for page in topviews %}
+					<li>
+						<a href="{{ page.url }}">{{ page.title }}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+			<strong>There are no top pages present.</strong>
+			{% endif %}
+		</div>
+		<div>
+			<a href="/rango/add_category/">Add a New Category</a><br />
+		</div>		
+		<div>
+			<a href="/rango/about/">About</a><br />
+			<img src="{% static 'images/rangoimg.jpg' %}" alt="Picture of Rango" width=200px height=300px />
+		</div>
+	</body>
+</html>
+-->
+{% load staticfiles %}
+{% block title_block %}
+	Rango 
+{% endblock %}
+
+{% block body_block %}
+<h1>Rango says...</h1>
+<div>
+	hey there partner! <br />
+</div>
+<div>
+	{% if categories %}
+		<ul>
+			{% for category in categories %}
+		<li>
+			<a href="{% url 'show_category' category.slug %}">{{ category.name }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		<strong>There are no categories present.</strong>
+	{% endif %}
+</div>
+<div>
+	Top Pages:
+	{% if topviews %}
+	<ul>
+		{% for page in topviews %}
+		<li>
+			<a href="{{ page.url }}">{{ page.title }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+		<strong>There are no top pages present.</strong>
+	{% endif %}
+</div>
+<div>
+	<img src="{% static 'images/rangoimg.jpg' %}" alt="Picture of Rango" width=200px height=300px />
+</div>
+{% endblock %}
